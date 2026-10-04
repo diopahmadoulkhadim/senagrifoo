@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sen-Agri-Food — Passer ma commande</title>
+    <meta name="description" content="Finalisez votre commande Sen-Agri-Food (envoi sur WhatsApp).">
+    <meta name="theme-color" content="#176B55">
+    <link rel="icon" href="images/logo.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="commande">
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="Sen-Agri-Food — Accueil">
+                <img src="images/logo.jpeg" alt="Sen-Agri-Food" class="brand-logo" width="56" height="56">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Ouvrir le menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" data-page="index" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" data-page="boutique" href="boutique.html">Boutique</a></li>
+                    <li class="nav-item"><a class="nav-link" data-page="produits" href="produits.html">Produits</a></li>
+                    <li class="nav-item"><a class="nav-link" data-page="favoris" href="favoris.html">Favoris</a></li>
+                    <li class="nav-item"><a class="nav-link" data-page="panier" href="panier.html">Panier</a></li>
+                    <li class="nav-item"><a class="nav-link" data-page="commande" href="commande.html">Commande</a></li>
+                    <li class="nav-item"><a class="nav-link" data-page="contact" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="favoris.html" class="nav-icon position-relative" aria-label="Mes favoris">
+                        <i class="bi bi-heart"></i>
+                        <span class="badge-icon" id="favoritesCount">0</span>
+                    </a>
+                    <a href="panier.html" class="nav-icon position-relative" aria-label="Mon panier">
+                        <i class="bi bi-cart"></i>
+                        <span class="badge-icon" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== EN-TÊTE ===== -->
+    <section class="page-header py-4 bg-light border-bottom">
+        <div class="container">
+            <h1 class="display-5 fw-bold text-dark mb-0">Passer ma commande</h1>
+            <p class="text-muted mb-0">Remplissez vos informations et finalisez votre achat</p>
+        </div>
+    </section>
+
+    <!-- ===== FORMULAIRE ===== -->
+    <section class="checkout-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm rounded-4 p-4">
+                        <form id="checkoutForm" novalidate>
+                            <h5 class="fw-bold mb-3"><i class="bi bi-person text-primary me-2"></i>Informations personnelles</h5>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="fullName" class="form-label">Nom complet <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="fullName" placeholder="Ex: Abdoulaye Diop" required minlength="3">
+                                    <div class="invalid-feedback">Veuillez entrer votre nom complet</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Téléphone <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="Ex: 77 123 45 67" required minlength="8">
+                                    <div class="invalid-feedback">Veuillez entrer un numéro de téléphone valide</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">E-mail <span class="text-muted small">(facultatif)</span></label>
+                                    <input type="email" class="form-control" id="email" placeholder="votre@email.com">
+                                    <div class="invalid-feedback">Veuillez entrer une adresse e-mail valide</div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="address" class="form-label">Adresse de livraison <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="address" rows="2" placeholder="Ex: Villa 123, Rue de la Paix..." required minlength="5"></textarea>
+                                    <div class="invalid-feedback">Veuillez entrer votre adresse de livraison</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="city" class="form-label">Ville <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="city" placeholder="Ex: Dakar, Saint-Louis..." required minlength="2">
+                                    <div class="invalid-feedback">Veuillez entrer votre ville</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="deliveryInstructions" class="form-label">Instructions de livraison</label>
+                                    <input type="text" class="form-control" id="deliveryInstructions" placeholder="Ex: Sonner à la porte...">
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <div class="alert alert-success d-flex align-items-start mb-0" role="note">
+                                <i class="bi bi-whatsapp fs-4 me-3"></i>
+                                <div class="small">Votre commande sera envoyée directement sur le <strong>WhatsApp de la gérante</strong> (Sokhna Mariama Bousso Diop). Le paiement et la livraison sont confirmés avec elle par message.</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100 mt-4 rounded-pill" id="submitOrder">
+                                <i class="bi bi-whatsapp me-2"></i>Envoyer ma commande sur WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="order-summary sticky-top" style="top: 100px;">
+                        <h5 class="fw-bold mb-3">Résumé de la commande</h5>
+                        <div id="orderItems">
+                            <div class="text-center py-3 text-muted">
+                                <i class="bi bi-cart3 me-2"></i>Chargement...
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="summary-line">
+                            <span>Sous-total</span>
+                            <span id="checkoutSubtotal">0 FCFA</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Livraison</span>
+                            <span id="checkoutShipping">0 FCFA</span>
+                        </div>
+                        <div class="summary-line border-0 fw-bold fs-5 py-3">
+                            <span>Total</span>
+                            <span id="checkoutTotal">0 FCFA</span>
+                        </div>
+                        <div class="text-muted small mt-2"><i class="bi bi-whatsapp me-1"></i>Commande finalisée avec la gérante sur WhatsApp</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MODALE CONFIRMATION ===== -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0">
+                <div class="modal-body text-center p-5">
+                    <div class="confirmation-icon bg-success bg-opacity-10 rounded-circle mx-auto mb-3">
+                        <i class="bi bi-check-circle-fill text-success fs-1"></i>
+                    </div>
+                    <h3 class="fw-bold">Dernière étape !</h3>
+                    <p class="text-muted">Merci <span id="confirmationName"></span>. WhatsApp s'est ouvert avec le récapitulatif de votre commande.<br><strong>Appuyez sur « Envoyer »</strong> dans WhatsApp pour la transmettre à la gérante.</p>
+                    <p class="text-muted small"><span id="confirmationNumber"></span></p>
+                    <a href="#" id="whatsappLink" target="_blank" rel="noopener" class="btn btn-success rounded-pill px-4"><i class="bi bi-whatsapp me-2"></i>WhatsApp ne s'est pas ouvert ? Cliquez ici</a>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+                        <a href="index.html" class="btn btn-outline-secondary rounded-pill"><i class="bi bi-house me-2"></i>Accueil</a>
+                        <a href="boutique.html" class="btn btn-primary rounded-pill"><i class="bi bi-shop me-2"></i>Continuer les achats</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <a href="index.html" class="footer-logo" aria-label="Sen-Agri-Food — Accueil"><img src="images/logo.jpeg" alt="Sen-Agri-Food" class="brand-logo" width="48" height="48" loading="lazy"></a>
+                    <p class="text-white-50 small mt-3">Le goût du Sénégal, directement chez vous.<br>Produits locaux transformés avec soin.</p>
+                    <div class="social-links mt-3">
+                        <a href="https://www.instagram.com/sen_agri_food_officiel/" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm rounded-circle me-2" aria-label="Instagram Sen-Agri-Food"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@senagrifood" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm rounded-circle me-2" aria-label="TikTok Sen-Agri-Food"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://wa.me/221775324672" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm rounded-circle" aria-label="WhatsApp Sen-Agri-Food"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold text-accent">Navigation</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="index.html" class="text-white-50 text-decoration-none">Accueil</a></li>
+                        <li><a href="boutique.html" class="text-white-50 text-decoration-none">Boutique</a></li>
+                        <li><a href="produits.html" class="text-white-50 text-decoration-none">Produits</a></li>
+                        <li><a href="favoris.html" class="text-white-50 text-decoration-none">Favoris</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold text-accent">Catégories</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="boutique.html?categorie=bissap" class="text-white-50 text-decoration-none">Bissap</a></li>
+                        <li><a href="boutique.html?categorie=bouye" class="text-white-50 text-decoration-none">Bouye</a></li>
+                        <li><a href="boutique.html?categorie=boissons" class="text-white-50 text-decoration-none">Boissons</a></li>
+                        <li><a href="boutique.html?categorie=epices" class="text-white-50 text-decoration-none">Épices &amp; Mélanges</a></li>
+                        <li><a href="boutique.html?categorie=snacks" class="text-white-50 text-decoration-none">Snacks</a></li>
+                        <li><a href="boutique.html?categorie=huiles" class="text-white-50 text-decoration-none">Huiles</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="fw-bold text-accent">Contact</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><i class="bi bi-geo-alt text-accent me-2"></i><span class="text-white-50">Saint-Louis, Sénégal</span></li>
+                        <li class="mb-2"><i class="bi bi-telephone text-accent me-2"></i><span class="text-white-50"><a href="tel:+221775324672" class="text-white-50 text-decoration-none">+221 77 532 46 72</a></span></li>
+                        <li class="mb-2"><i class="bi bi-envelope text-accent me-2"></i><span class="text-white-50">contact@sen-agri-food.sn</span></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4">
+            <div class="text-center small text-white-50">
+                &copy; <span class="current-year">2026</span> <span class="text-accent">Sen-Agri-Food</span> — Tous droits réservés.
+                <br class="d-md-none">Fait avec <i class="bi bi-heart-fill text-accent"></i> au Sénégal
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="data/products.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>
