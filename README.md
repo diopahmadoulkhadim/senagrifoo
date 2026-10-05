@@ -45,8 +45,9 @@ images/           Logo, photo d'accueil, photos produits
 - Fiche produit détaillée (mode d'emploi, DLC, suggestions)
 - Panier interactif : quantités, stock, livraison offerte dès 10 000 FCFA (sinon 1 000 FCFA)
 - Favoris
-- Commande avec validation (téléphone sénégalais) : le récapitulatif est envoyé **directement sur le WhatsApp de la gérante** (76 824 88 38)
+- Commande avec validation (téléphone sénégalais) : le récapitulatif est envoyé **directement sur le WhatsApp de la gérante** (76 842 88 38)
 - Formulaire de contact : le message s'ouvre dans WhatsApp, vers le même numéro
+- Bouton WhatsApp flottant sur toutes les pages
 - Responsive (mobile, tablette, ordinateur)
 
 ### 🚀 Installation

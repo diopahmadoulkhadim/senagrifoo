@@ -3,7 +3,7 @@
    ============================================================ */
 
 /* Numéro WhatsApp de la gérante (Mariama Bousso Diop), format international sans + */
-const WHATSAPP_NUMBER = '221768248838';
+const WHATSAPP_NUMBER = '221768428838';
 
 const SHIPPING_COST = 1000;
 const FREE_SHIPPING_THRESHOLD = 10000;
@@ -151,7 +151,21 @@ function markActiveNav() {
     });
 }
 
+/* Bouton WhatsApp flottant (toutes les pages) */
+function addFloatingWhatsApp() {
+    if (document.querySelector('.whatsapp-float')) return;
+    const link = document.createElement('a');
+    link.className = 'whatsapp-float';
+    link.href = whatsappUrl("Bonjour Sen-Agri-Food, j'aimerais avoir des informations.");
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.setAttribute('aria-label', 'Discuter avec Sen-Agri-Food sur WhatsApp');
+    link.innerHTML = '<i class="bi bi-whatsapp" aria-hidden="true"></i>';
+    document.body.appendChild(link);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    addFloatingWhatsApp();
     markActiveNav();
     updateAllCounters();
     document.querySelectorAll('.current-year').forEach(el => { el.textContent = new Date().getFullYear(); });
