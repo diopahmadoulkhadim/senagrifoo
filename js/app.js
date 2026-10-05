@@ -2,8 +2,8 @@
    SEN-AGRI-FOOD — Fonctions communes à toutes les pages
    ============================================================ */
 
-/* Numéro WhatsApp de la gérante (Sokhna Mariama Bousso Diop), format international sans + */
-const WHATSAPP_NUMBER = '221775324672';
+/* Numéro WhatsApp de la gérante (Mariama Bousso Diop), format international sans + */
+const WHATSAPP_NUMBER = '221768248838';
 
 const SHIPPING_COST = 1000;
 const FREE_SHIPPING_THRESHOLD = 10000;

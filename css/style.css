@@ -321,3 +321,9 @@ a:focus-visible, button:focus-visible, .notification .btn-close { font-size: 0.7
     .product-card .product-unit { display: block; margin-left: 0 !important; font-size: 0.75rem; }
     .product-card .btn-add-cart { font-size: 0.8rem; padding: 0.5rem 0.25rem; }
 }
+
+/* Carte produit épurée : image, nom, prix */
+.product-card .product-card-link { display: block; height: 100%; }
+.product-card .product-body { padding: 0.9rem 0.75rem 1.1rem; }
+.product-card .product-name { color: var(--dark, #17211d); }
+.product-card .product-price { display: block; }

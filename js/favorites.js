@@ -23,7 +23,7 @@ function loadFavorites() {
     }
     emptyContainer.style.display = 'none';
     grid.style.display = '';
-    renderProductGrid(grid, ids.map(getProductById));
+    renderProductGrid(grid, ids.map(getProductById), { favorite: true });
 }
 
 onPage('favoris', loadFavorites);

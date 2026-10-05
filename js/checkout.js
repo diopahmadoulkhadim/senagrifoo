@@ -98,7 +98,7 @@ function buildOrderMessage(order) {
         `Adresse : ${c.address}, ${c.city}`,
         ...(c.instructions ? [`Instructions : ${c.instructions}`] : []),
         '',
-        'Merci de me confirmer la commande, le paiement et la livraison.'
+        'Merci de me confirmer la commande, les frais de livraison et le paiement.'
     ];
     return lines.join('\n');
 }

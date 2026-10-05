@@ -4,7 +4,7 @@
 
 ### 📝 Description
 
-Sen-Agri-Food est une boutique en ligne de **produits locaux sénégalais transformés** : bissap, bouye, boissons traditionnelles, mélanges (accras, beignets, neuteuri), snacks et huile de baobab.
+Sen-Agri-Food (siège à Touba, Sénégal) est une boutique en ligne de **produits locaux sénégalais transformés**, livrés partout dans le monde : bissap, bouye, boissons traditionnelles, mélanges (accras, beignets, neuteuri), snacks et huile de baobab.
 
 ### 💻 Technologies
 
@@ -41,11 +41,11 @@ images/           Logo, photo d'accueil, photos produits
 
 ### ✨ Fonctionnalités
 
-- Catalogue, recherche (sans accents), filtres par catégorie, tri
+- Catalogue, recherche (sans accents), filtres par catégorie, tri ; cartes produit épurées (image, nom, prix), clic sur la carte = fiche produit
 - Fiche produit détaillée (mode d'emploi, DLC, suggestions)
 - Panier interactif : quantités, stock, livraison offerte dès 10 000 FCFA (sinon 1 000 FCFA)
 - Favoris
-- Commande avec validation (téléphone sénégalais) : le récapitulatif est envoyé **directement sur le WhatsApp de la gérante** (77 532 46 72)
+- Commande avec validation (téléphone sénégalais) : le récapitulatif est envoyé **directement sur le WhatsApp de la gérante** (76 824 88 38)
 - Formulaire de contact : le message s'ouvre dans WhatsApp, vers le même numéro
 - Responsive (mobile, tablette, ordinateur)
 
@@ -56,6 +56,7 @@ images/           Logo, photo d'accueil, photos produits
 
 ### 📝 Notes importantes
 
+- Livraison partout dans le monde : le tarif fixe du panier (1 000 FCFA, gratuit dès 10 000 FCFA) est indicatif ; pour l'international, la gérante confirme les frais sur WhatsApp.
 - Il n'y a pas de paiement en ligne : la gérante confirme commande, paiement et livraison avec le client sur WhatsApp.
 - Le numéro WhatsApp se change à un seul endroit : `WHATSAPP_NUMBER` en haut de `js/app.js` (et le texte du pied de page / de `contact.html`).
 - Réseaux sociaux : Instagram `sen_agri_food_officiel` et TikTok `@senagrifood` (pied de page et page Contact).

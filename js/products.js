@@ -19,42 +19,35 @@ function productImage(product) {
     return 'images/' + product.image;
 }
 
-/* ---------- Cartes produit ---------- */
-function createProductCard(product) {
-    const isFav = getFavoriteIds().includes(product.id);
-    const inStock = product.stock > 0;
+/* ---------- Cartes produit : image, nom et prix uniquement ---------- */
+/* Toute la carte est un lien vers la fiche produit (ajout au panier et favoris s'y trouvent).
+   Le cœur n'apparaît que dans la page Favoris (options.favorite), pour pouvoir retirer un produit. */
+function createProductCard(product, options = {}) {
     const url = `produits.html?id=${product.id}`;
+    let heart = '';
+    if (options.favorite) {
+        const isFav = getFavoriteIds().includes(product.id);
+        heart = `<button type="button" class="favorite-btn ${isFav ? 'active' : ''}" data-fav="${product.id}"
+                    aria-pressed="${isFav}" aria-label="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'} : ${escapeHTML(product.name)}">
+                    <i class="bi bi-heart${isFav ? '-fill' : ''}"></i></button>`;
+    }
     return `
         <div class="product-card" data-product-id="${product.id}">
-            <div class="product-image-wrapper">
-                <a href="${url}" tabindex="-1" aria-hidden="true">
+            <a href="${url}" class="product-card-link text-decoration-none text-reset">
+                <div class="product-image-wrapper">
                     <img src="${productImage(product)}" alt="${escapeHTML(product.name)}" class="product-image" loading="lazy">
-                </a>
-                ${product.badge ? `<span class="product-badge">${escapeHTML(product.badge)}</span>` : ''}
-                <button type="button" class="favorite-btn ${isFav ? 'active' : ''}" data-fav="${product.id}"
-                        aria-pressed="${isFav}" aria-label="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'} : ${escapeHTML(product.name)}">
-                    <i class="bi bi-heart${isFav ? '-fill' : ''}"></i>
-                </button>
-            </div>
-            <div class="product-body">
-                <div class="d-flex justify-content-between align-items-start">
-                    <span class="product-category">${escapeHTML(getCategoryLabel(product.category))}</span>
-                    <span class="product-stock ${inStock ? 'in-stock' : 'out-of-stock'}">${inStock ? '✓ En stock' : 'Rupture de stock'}</span>
                 </div>
-                <h3 class="product-name h5"><a href="${url}" class="text-decoration-none text-reset">${escapeHTML(product.name)}</a></h3>
-                <p class="product-description">${escapeHTML(product.description)}</p>
-                <div class="d-flex justify-content-between align-items-center gap-2">
-                    <div><span class="product-price">${formatPrice(product.price)}</span><span class="product-unit ms-1">/ ${escapeHTML(product.unit)}</span></div>
+                <div class="product-body text-center">
+                    <h3 class="product-name h6 mb-1">${escapeHTML(product.name)}</h3>
+                    <span class="product-price">${formatPrice(product.price)}</span>
                 </div>
-                <button type="button" class="btn-add-cart mt-3" data-add="${product.id}" ${inStock ? '' : 'disabled'}>
-                    <i class="bi bi-cart-plus me-1"></i>${inStock ? 'Ajouter au panier' : 'Indisponible'}
-                </button>
-            </div>
+            </a>
+            ${heart}
         </div>`;
 }
 
-function renderProductGrid(grid, products) {
-    grid.innerHTML = products.map(p => `<div class="col-6 col-md-4 col-lg-3">${createProductCard(p)}</div>`).join('');
+function renderProductGrid(grid, products, options = {}) {
+    grid.innerHTML = products.map(p => `<div class="col-6 col-md-4 col-lg-3">${createProductCard(p, options)}</div>`).join('');
 }
 
 /* ---------- Boutique : recherche, filtre, tri ---------- */
